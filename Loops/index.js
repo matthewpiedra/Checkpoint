@@ -10,7 +10,6 @@ EXAMPLE
 
 CREATE A FUNCTION THAT CONSOLE.LOGS hello world 3 times
 
-
 */
 
 function helloWorld3Times() {
@@ -24,11 +23,13 @@ QUESTION 1
 
 CREATE A FUNCTION THAT ACCEPTS ONE ARGUMENT, THE NUMBER OF TIMES IT WILL CONSOLE.LOG hello world
 
-
 */
 
 function dynamicHelloWorld(num) {
   // CODE HERE
+  for(let i=0;i<num;i++) {
+    console.log("hello world");
+  }
 }
 
 /*
@@ -40,6 +41,9 @@ CREATE A FUNCTION THAT ACCEPTS A STRING AND WILL LOG TO THE CONSOLE EACH CHARACT
 
 function logEachChar(str) {
   // CODE HERE
+  for(let i=0;i<str.length;i++) {
+    console.log(str.charAt(i));
+  }
 }
 
 /*
@@ -55,6 +59,12 @@ e.g. checkIfCharExists('hello', 'l') ===> true
 
 function checkIfCharExists(str, char) {
   // CODE HERE
+  for(let i=0;i<str.length;i++) {
+    if(str[i] === char) {
+      return true;
+    }
+  }
+  return false;
 }
 
 /*
@@ -69,6 +79,12 @@ e.g. indexOf('hello', 'l') ===> 2
 
 function indexOf(str, char) {
   // CODE HERE
+  for(let i=0;i<str.length;i++) {
+    if(str[i] === char) {
+      return i;
+    }
+  }
+  return -1;
 }
 
 /*
@@ -101,6 +117,20 @@ FizzBuzz
 
 function fizzBuzz(num) {
   // CODE HERE
+  for(let i=1;i<=num;i++) {
+    if(i % 3 === 0 && i % 5 === 0) {
+      console.log("FizzBuzz");
+    }
+    else if(i % 3 === 0) {
+      console.log("Fizz");
+    }
+    else if(i % 5 === 0) {
+      console.log("Buzz");    
+    }
+    else {
+      console.log(i);
+    }
+  }
 }
 
 /*
@@ -115,6 +145,15 @@ THE FIBONACCI SEQUENCE STARTS WITH 1 AND 1 AND THEN THE NEXT NUMBER IS THE ADDIT
 
 function fibonacci(n) {
   // CODE HERE
+  let current = 1;
+  let next = 1;
+
+  for(let i=1;i<n;i++) {
+     let temp = current + next;
+     current = next;
+     next = temp;   
+  }
+  return current;
 }
 
 console.log(fibonacci(5));
