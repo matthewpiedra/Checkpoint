@@ -16,11 +16,12 @@ QUESTION 1
 CREATE A CONSTRUCTOR FUNCTION THAT TAKES AN ARGUMENT name AND ASSIGNS A PROPERTY name EQUAL TO THE ARGUMENT
 IT ALSO HAS ANOTHER PROPERTY type THAT EQUALS THE STRING 'parent class'
 
-
 */
 
 function MyFirstClass(name) {
   // CODE HERE
+  this.name = name;
+  this.type = 'parent class';
 }
 
 /*
@@ -31,6 +32,10 @@ USING THE PROTOTYPE CHAIN, ADD THE METHOD getNumberOfChars THAT JUST RETURNS THE
 */
 
 // CODE HERE
+MyFirstClass.prototype.getNumberOfChars = function() {
+  name = this.name;
+  return name.length;
+}
 
 /*
 QUESTION 3
@@ -39,11 +44,11 @@ CREATE A CLASS MySecondClass THAT INHERITS PROPERTIES FROM MyFirstClass. MySecon
 
 REMEMBER TO USE THE METHOD call AND FEED this AS THE FIRST ARGUMENT
 
-
 */
 
 function MySecondClass(name) {
   // CODE HERE
+  MyFirstClass.call(this,name);
 }
 
 /*
@@ -53,10 +58,10 @@ MAKE IT THAT MySecondClass INHERITS METHODS FROM MyFirstClass
 
 YOU MAY WANT TO LINK THE PROTOTYPICAL CHAINS AND USE Object.create
 
-
 */
 
 // CODE HERE
+MySecondClass.prototype = Object.create(MyFirstClass.prototype);
 
 /*
 QUESTION 5
@@ -67,6 +72,7 @@ MAKE SURE THE CONSTRUCTOR FUNCTION FOR MySecondClass's INSTANCE IS INDEED MySeco
 */
 
 // CODE HERE
+MySecondClass.prototype.constructor = MySecondClass;
 
 /*
 TEST SECTION, PLEASE DO NOT TOUCH
