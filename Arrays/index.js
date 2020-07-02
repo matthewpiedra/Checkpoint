@@ -40,7 +40,8 @@ pushTrue([1,2,3]) ===> [1, 2, 3, 'last element']
 
 function pushString(arr) {
   // CODE HERE
-  console.log(arr);
+  arr[arr.length] = 'last element';
+  return arr;
 }
 
 /*
@@ -59,6 +60,9 @@ mutateZeroElem([1,2,3]) ===> [1, 2, 3, true]
 
 function push(array, value) {
   // CODE HERE
+  array[array.length] = value;
+
+  return array;
 }
 
 /*
@@ -81,6 +85,9 @@ true
 
 function printElements(array) {
   // CODE HERE
+  for(let i=0;i<array.length;i++) {
+    console.log(array[i]);
+  }
 }
 
 /*
@@ -110,6 +117,24 @@ unique([1,2,3,2,3,2]) ===> [1, 2, 3];
 
 function unique(array) {
   // CODE HERE
+  let new_array = [];
+  
+  for(let i=0;i<array.length;i++) {
+    for(let j=0;j<=i;j++) {
+      if(array[i] === array[j]){
+        if(new_array.includes(array[j]) === false) {
+          new_array.push(array[j]);
+        }
+      }
+      else {
+        if(new_array.includes(array[j]) === false) {
+          new_array.push(array[j])
+        }
+      }
+    }
+  }
+
+  return new_array;
 }
 
 /*
@@ -120,12 +145,19 @@ DO NOT USE indexOf
 
 HINT USE AN INNER FOR-LOOP
 
-
-
 */
 
 function compare(array1, array2) {
   // CODE HERE
+  for(let i=0;i<array1.length;i++) {
+    for(let j=0;j<array2.length;j++) {
+      if(array1[i] === array2[j]) {
+        return true;
+      }
+    }
+  }
+
+  return false;
 }
 
 /*
@@ -142,6 +174,19 @@ compareArrays([1, 2, 3, 4], [1, 2]) ====> [1, 2]
 
 function compareArrays(array1, array2) {
   // CODE HERE
+  let new_array = [];
+  
+  for(let i=0;i<array1.length;i++) {
+    for(let j=0;j<array2.length;j++) {
+       if(array1[i] === array2[j]) {
+         if(new_array.includes(array1[i]) === false) {
+           new_array.push(array1[i]);
+         }
+       }
+    }
+  }
+
+  return new_array;
 }
 
 /*
@@ -157,6 +202,28 @@ compareArraysOpposite([1,2,3,4], [1,3]) ===> [2, 4]
 
 function compareArraysOpposite(array1, array2) {
   // CODE HERE
+  let new_array = [];
+  
+  for(let i=0;i<array1.length;i++) {
+    for(let j=0;j<array2.length;j++) {
+      if(array1[i] !== array2[j]) {
+         if(new_array.includes(array1[i]) === false) {
+           new_array.push(array1[i]);
+         }
+      }
+      else {
+        if(new_array.includes(array1[i]) === true) {
+          new_array.pop();
+          break;
+        }
+        else {
+          break;
+        }
+      }
+    }
+  }
+
+  return new_array;
 }
 
 /*
@@ -182,6 +249,7 @@ retrieveValue(twoDimentionArray, 3, 1) ===> 1
 
 function retrieveValue(arr, row, col) {
   // CODE HERE
+  return arr[row][col];
 }
 
 /*
@@ -212,6 +280,17 @@ createTwoDArray(3, 5) ===> [
 
 function createTwoDArray(row, col) {
   // CODE HERE
+  let array = [];
+  
+  for(let r=0;r<row;r++) {
+    let row = [];
+    for(let c=0;c<col;c++) {
+      row.push(0);
+    }
+    array.push(row);
+  }
+
+  return array;
 }
 
 /*

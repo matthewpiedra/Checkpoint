@@ -17,7 +17,7 @@ CREATE A FUNCTION THAT RETURNS THE BOOLEAN true
 
 */
 
-function example() {}
+function example() { return true; }
 
 /*
 QUESTION 1
